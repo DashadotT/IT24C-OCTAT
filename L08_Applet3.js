@@ -42,4 +42,15 @@ class DataLogger {
 
         this.displayLogCount();
     }
+
+    // Returns the count of logged data entries
+    countLogs() {
+        return this.loggedData.length;
+    }
+
+    // Displays the count of logs in the designated element
+    displayLogCount() {
+        const logCount = this.countLogs();
+        this.logCountElement.innerHTML = `<p>Total Logs: ${logCount}</p>`;
+    }
 }
