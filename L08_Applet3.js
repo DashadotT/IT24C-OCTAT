@@ -54,3 +54,8 @@ class DataLogger {
         this.logCountElement.innerHTML = `<p>Total Logs: ${logCount}</p>`;
     }
 }
+
+// Initialize the DataLogger when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new DataLogger('logButton', 'cardContainer', 'clearButton', 'logCount');
+});
