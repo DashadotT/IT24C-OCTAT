@@ -45,3 +45,18 @@ function renderApplets(applets) {
         appletContainer.appendChild(card);
     });
 }
+
+document.getElementById('searchButton').addEventListener('click', function () {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const filteredApplets = applets.filter(applet =>
+        applet.title.toLowerCase().includes(searchInput)
+    );
+    renderApplets(filteredApplets);
+});
+
+
+document.getElementById('searchInput').addEventListener('input', function () {
+    if (!this.value) {
+        renderApplets(applets);
+    }
+});
