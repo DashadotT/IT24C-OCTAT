@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Applet 1 - Basic Events",
+        "description": "This application contains the basic implementation of DOM events.",
+        "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/6722.png",
+        "link": "./L06-AppletGallery/"
+    },
+    {
+        "title": "Applet 2 - Leaflet Map",
+        "description": "This application contains the basic web map.",
+        "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/6722.png",
+        "link": "./L07-LeafletMap/"
+    },
+    {
+        "title": "Applet 3 - Event Logger",
+        "description": "This application contains the logs with the date and total number of logs.",
+        "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/6722.png",
+        "link": "./L08-EventLogger/"
+    },
+    {
+        "title": "Applet 4 - Dynamic Elements",
+        "description": "This application applies dynamic elements such as rendering DOM elements from a list.",
+        "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/6722.png",
+        "link": "./L09-DynamicElements/"
+    }
+]

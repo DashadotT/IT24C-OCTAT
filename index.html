@@ -14,12 +14,17 @@
         .applet-flex-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
             margin-top: 2rem;
-            width: 55%;
+            margin-left: 2rem;
+            width: 100%;
+            align-items: stretch;
         }
 
-        .applet-flex-container>div {
-            margin-left: .5rem;
+        .card {
+            width: 15rem;
+            margin: 0.5rem;
         }
 
         .title {
@@ -54,54 +59,20 @@
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" role="search" onsubmit="return false;">
+                <input class="form-control me-2" type="search" id="searchInput" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
             </form>
         </div>
     </div>
 </nav>
 
 <body>
-    <h1 class="title">Event Driven Programming</h1>
-    <div class="applet-flex-container">
-        <!--Applet 1 Card-->
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Applet 1 - Basic Events </h5>
-                <p class="card-text">This application contains the basic implementation of DOM events</p>
-                <a href="L06-AppletGallery/L06_Applet1.html" class="btn btn-primary">Go to Applet</a>
-            </div>
-        </div>
+    <h1 class="title">APP GALLERY</h1>
+    <div class="applet-flex-container" id="appletContainer"></div>
 
-        <!--Applet 2 Card-->
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Applet 2 - Leaflet Map</h5>
-                <p class="card-text">This application contains the basic web map</p>
-                <a href="L07-LeafletMap/L07_Applet2.html" class="btn btn-primary">Go to Applet</a>
-            </div>
-        </div>
-
-        <!--Applet 3 Card-->
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Applet 3 - Event Logger</h5>
-                <p class="card-text">This application contains the basic event logger</p>
-                <a href="L08-EventLogger/L08_Applet3.html" class="btn btn-primary">Go to Applet</a>
-            </div>
-        </div>
-
-        <!--Applet 3 Card-->
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Applet 4 - Dynamic Elements</h5>
-                <p class="card-text">This application contains the basic Dynamic Elements</p>
-                <a href="L09-DynamicElements/L09_Applet4.html" class="btn btn-primary">Go to Applet</a>
-            </div>
-        </div>
-
-    </div>
+    <script src="gallery.js"></script>
 </body>
 
 </html>
