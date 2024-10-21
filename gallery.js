@@ -1,62 +1,64 @@
-let applets = [];
+class AppletCard {
+    constructor(title, description, link) {
+        this.title = title;
+        this.description = description;
+        this.link = link;
+    }
 
-fetch('gallery.json')
-    .then(response => response.json())
-    .then(data => {
-        applets = data;
-        renderApplets(applets);
-    })
-    .catch(error => console.error('Error fetching JSON:', error));
-
-function renderApplets(applets) {
-    const appletContainer = document.getElementById('appletContainer');
-    appletContainer.innerHTML = '';
-
-    applets.forEach(applet => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-
-        const img = document.createElement('img');
-        img.src = applet.imageUrl;
-        img.classList.add('card-img-top');
-        img.height = 180;
-
-        const cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
-
-        const title = document.createElement('h5');
-        title.classList.add('card-title');
-        title.textContent = applet.title;
-
-        const text = document.createElement('p');
-        text.classList.add('card-text');
-        text.textContent = applet.description;
-
-        const button = document.createElement('a');
-        button.classList.add('btn', 'btn-primary');
-        button.href = applet.link;
-        button.textContent = 'Go to Applet';
-
-        cardBody.appendChild(title);
-        cardBody.appendChild(text);
-        cardBody.appendChild(button);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        appletContainer.appendChild(card);
-    });
+    createCard() {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card applet-card';
+        cardDiv.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title">${this.title}</h5>
+                <p class="card-text">${this.description}</p>
+                <a href="${this.link}" class="btn btn-primary applet-btn" style="">Go to Applet</a>
+            </div>
+        `;
+        return cardDiv;
+    }
 }
 
-document.getElementById('searchButton').addEventListener('click', function () {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase();
-    const filteredApplets = applets.filter(applet =>
-        applet.title.toLowerCase().includes(searchInput)
-    );
-    renderApplets(filteredApplets);
-});
+class AppletRenderer {
+    constructor(containerId,searchInputId) {
+        this.container = document.getElementById(containerId);
 
-
-document.getElementById('searchInput').addEventListener('input', function () {
-    if (!this.value) {
-        renderApplets(applets);
+        //
+        this.searchInput = document.getElementById(searchInputId);
+        this.appletData = [];
+        this.filteredData = [];
+        this.searchInput.addEventListener('input',()=> this.filterApplets());
     }
-});
+
+    fetchAppletData(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.appletData = data;
+                this.filteredData = data;
+                this.renderApplets(this.filteredData);
+            })
+            .catch(error => console.error('Error loading applet data:', error));
+    }
+
+    renderApplets(data) {
+        this.container.innerHTML = '';
+        data.forEach(applet => {
+            const appletCard = new AppletCard(applet.title, applet.description, applet.link);
+            const cardElement = appletCard.createCard();
+            this.container.appendChild(cardElement);
+        });
+    }
+
+    filterApplets(){
+        const query = this.searchInput.value.toLowerCase();
+        this.filteredData = this.appletData.filter(applet =>
+            applet.title.toLowerCase().includes(query) ||
+            applet.description.toLowerCase().includes(query)
+        );
+        this.renderApplets(this.filteredData);
+    }
+}
+
+const appletRenderer = new AppletRenderer('applet-container','searchApplet');
+appletRenderer.fetchAppletData('gallery.json');
