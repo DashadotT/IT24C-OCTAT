@@ -9,5 +9,13 @@ class WeatherApp {
 
         //Geolocation Input
         this.getLocationBtn = document.getElementById('getLocationBtn');
+
+        //Weather Card
+        this.weatherCard = document.getElementById('weatherCard');
+        this.cityName = document.getElementById('cityName');
+        this.temperature = document.getElementById('temperature');
+        this.description = document.getElementById('description');
+        this.humidity = document.getElementById('humidity');
+        this.windSpeed = document.getElementById('windSpeed');
     }
 }
