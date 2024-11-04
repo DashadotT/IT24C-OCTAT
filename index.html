@@ -1,95 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Event Driven Programming Library</title>
-    <style>
-        
-      .applet-flex-container {
-          display: flex;
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          align-items: center;
-          margin-top: 2rem;
-          margin-left: 10rem;
-          width: 80%;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <title>Event Driven Programming Library</title>
+  <style>
+    body {
+      background: #264653;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .applet-flex-container > div {
-          margin-left: 0.8rem;
-          border-radius: 20px;
-          box-shadow: 0 0px 2px rgb(0, 153, 255);
-      }
+    .applet-flex-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 2rem;
+      margin-left: 10rem;
+      width: 80%;
+    }
 
-      .title {
-          margin-top: 1rem;
-          margin-left: 11rem;
-          text-align: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          align-items: center;
-      }
+    .applet-flex-container>div {
+      margin-left: 0.8rem;
+      color: white;
+      border-radius: 20px;
+      border: 1px solid rgb(255, 255, 255);
+      background-color: #264653;
+      transition: background-color 0.3s ease;
+      padding: 20px;
+    }
 
-      .applet-card {
-          flex: 1 1 20rem; 
-          max-width: 20rem;
-          width: 25rem;
-          height: 15rem;
-          margin-bottom: 1rem;
-          box-sizing: border-box;
-      }
+    .applet-flex-container>div:hover {
+      background-color: #0e3749;
+    }
 
-      .applet-btn {
-          position: absolute; 
-          bottom: 20px; 
-          right: 20px;
-          box-shadow: 0 0 15px rgb(0, 153, 255);
-      }
+    .applet-flex-container>div:hover .applet-btn {
+      color: white;
+    }
 
-    </style>
+    .title {
+      margin-top: 1rem;
+      text-align: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      color: #f4a261;
+    }
+
+    .applet-card {
+      flex: 1 1 20rem;
+      max-width: 20rem;
+      width: 25rem;
+      height: 15rem;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
+
+    .applet-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 20px;
+      background-color: #f36f57;
+      border: none;
+      transition: transform 0.3s ease, border 0.3s ease, color 0.3s ease;
+    }
+
+    .applet-btn:hover {
+      border: 1px solid #ffffff;
+      background-color: #264653;
+      color: #ffffff;
+      transform: scale(1.15);
+    }
+  </style>
 </head>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Applets
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="L06-AppletGallery/L06_Applet1.html">Applet 1</a></li>
-              <li><a class="dropdown-item" href="L07-LeafletMap/L07_Applet2.html">Applet 2</a></li>
-              <li><a class="dropdown-item" href="L08-EventLogger/L08_Applet3.html">Applet 3</a></li>
-              <li><a class="dropdown-item" href="L09-DynamicElements/L09_Applet4.html">Applet 4</a></li>
-              <li><a class="dropdown-item" href="L11-OpenWeather/L11_Applet5.html">Applet 5</a></li>
-              <li><a class="dropdown-item" href="L12-TodoList/L12_Applet6.html">Applet 6</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" aria-label="Search" id="searchApplet" placeholder="Search applets...">
-          <button class="btn btn-outline-success" type="submit" >Search</button>
-        </form>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Applets
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="L06-AppletGallery/L06_Applet1.html">Applet 1</a></li>
+            <li><a class="dropdown-item" href="L07-LeafletMap/L07_Applet2.html">Applet 2</a></li>
+            <li><a class="dropdown-item" href="L08-EventLogger/L08_Applet3.html">Applet 3</a></li>
+            <li><a class="dropdown-item" href="L09-DynamicElements/L09_Applet4.html">Applet 4</a></li>
+            <li><a class="dropdown-item" href="L11-OpenWeather/L11_Applet5.html">Applet 5</a></li>
+            <li><a class="dropdown-item" href="L12-TodoList/L12_Applet6.html">Applet 6</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" aria-label="Search" id="searchApplet"
+          placeholder="Search applets...">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
+  </div>
 </nav>
 
 <body>
 
-    <h1 class="title" >Event Driven Programming Library</h1>
-    <div class="applet-flex-container"  id="applet-container"></div>
+  <h1 class="title">Event Driven Programming Library</h1>
+  <div class="applet-flex-container" id="applet-container"></div>
 
-<script src="gallery.js"></script>
+  <script src="gallery.js"></script>
 </body>
+
 </html>
