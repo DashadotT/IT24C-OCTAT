@@ -81,10 +81,33 @@
       color: #ffffff;
       transform: scale(1.15);
     }
+
+    .navbar {
+      background: linear-gradient(500deg, #365a68, #264653);
+    }
+
+    .navbar .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .navbar .navbar-brand {
+      color: white;
+    }
+
+    form .btn {
+      border: 1px solid white;
+      color: white;
+    }
+
+    form .btn:hover {
+      background-color: #f36f57;
+      color: white;
+    }
+
   </style>
 </head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -113,7 +136,7 @@
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" aria-label="Search" id="searchApplet"
           placeholder="Search applets...">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn" type="submit">Search</button>
       </form>
     </div>
   </div>
